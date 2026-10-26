@@ -17,3 +17,7 @@ venv/
 *.swp
 *.bak
 convert_to_docx.py
+
+# Ignore generated docx and pdf exports
+*.docx
+*.pdf
