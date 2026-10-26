@@ -1,0 +1,19 @@
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.venv
+env/
+venv/
+
+# Temporary / editor files
+.idea/
+.vscode/
+*.swp
+*.bak
+convert_to_docx.py
