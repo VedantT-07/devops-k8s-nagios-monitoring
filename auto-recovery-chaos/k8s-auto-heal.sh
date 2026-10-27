@@ -26,7 +26,7 @@ CRITICAL)
     exit 0
   fi
  
-  if [ "$REPLICAS" -eq 0 ]; then
+  if [ "$REPLICAS" -eq 0 ] && [ "$STATETYPE" = "HARD" ]; then
     log "CRITICAL: replicas is 0. Scaling $DEPLOYMENT back to $DESIRED_REPLICAS..."
     kubectl scale deployment "$DEPLOYMENT" --replicas="$DESIRED_REPLICAS" -n "$NAMESPACE" >> "$LOGFILE" 2>&1
     log "Scale-up issued. Pods re-provisioning."
