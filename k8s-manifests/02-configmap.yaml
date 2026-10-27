@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webapp-html-content
+  namespace: devops-monitoring
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Production Web Service | Nagios & K8s Monitored</title>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 32px; max-width: 650px; width: 100%; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: #064e3b; color: #34d399; font-size: 0.85rem; font-weight: 600; padding: 4px 12px; border-radius: 9999px; margin-bottom: 16px; border: 1px solid #059669; }
+        .badge-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+        h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
+        p.subtitle { color: #94a3b8; font-size: 0.95rem; margin-bottom: 24px; line-height: 1.5; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+        .stat-box { background: #0f172a; border: 1px solid #334155; padding: 14px; border-radius: 8px; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; color: #64748b; font-weight: 600; letter-spacing: 0.05em; }
+        .stat-value { font-size: 1rem; font-weight: 600; color: #38bdf8; margin-top: 4px; }
+        .footer { border-top: 1px solid #334155; padding-top: 16px; font-size: 0.85rem; color: #64748b; display: flex; justify-content: space-between; align-items: center; }
+        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <div class="badge"><span class="badge-dot"></span> Service Status: HEALTHY (200 OK)</div>
+        <h1>Enterprise Production Web Service</h1>
+        <p class="subtitle">Containerized microservice running on Kubernetes. Continuously monitored via synthetic polling by centralized Nagios Core with automated out-of-band remediation.</p>
+        
+        <div class="grid">
+          <div class="stat-box">
+            <div class="stat-label">Orchestration</div>
+            <div class="stat-value">Kubernetes (Minikube)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Namespace</div>
+            <div class="stat-value">devops-monitoring</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">External NodePort</div>
+            <div class="stat-value">Port 30080</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Central Monitor</div>
+            <div class="stat-value">Nagios Core 4.x + NCPA</div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <span>DevOps Capstone Project &bull; Team of 4</span>
+          <span>Auto-Healing: Enabled</span>
+        </div>
+      </div>
+    </body>
+    </html>

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: production-webapp-service
+  namespace: devops-monitoring
+  labels:
+    app: production-webapp
+    tier: frontend
+spec:
+  type: NodePort
+  selector:
+    app: production-webapp
+  ports:
+    - protocol: TCP
+      name: http-traffic
+      port: 80
+      targetPort: 80
+      nodePort: 30080
